@@ -6,50 +6,52 @@
   <title>Dashboard | PaymentLoo</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
+      background: linear-gradient(to right, #43e97b, #38f9d7);
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-    .dashboard-box {
+    .dashboard {
       background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
       width: 350px;
       text-align: center;
     }
-    .dashboard-box h2 {
+    .dashboard h2 {
       margin-bottom: 20px;
+      color: #00897b;
     }
-    .dashboard-box p {
+    .dashboard p {
+      font-size: 16px;
       margin: 10px 0;
       font-weight: bold;
     }
-    .dashboard-box button {
-      padding: 10px 20px;
-      background-color: #e53935;
+    .dashboard button {
+      padding: 10px 25px;
+      background-color: #00897b;
       color: white;
       border: none;
       border-radius: 5px;
+      font-size: 15px;
       cursor: pointer;
     }
-    .dashboard-box button:hover {
-      background-color: #c62828;
+    .dashboard button:hover {
+      background-color: #00695c;
     }
   </style>
 </head>
 <body>
-
-  <div class="dashboard-box">
+  <div class="dashboard">
     <h2>Welcome to PaymentLoo</h2>
-    <p id="user-email">Checking login...</p>
+    <p id="user-email">Verifying...</p>
     <button onclick="logout()">Logout</button>
   </div>
 
- <script type="module">
+  <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
