@@ -1,64 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PaymentLoo - Payment Reminder App</title>
-  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register | PaymentLoo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    input, button {
-      display: block;
-      margin: 10px 0;
-      padding: 10px;
+    .register-box {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    .register-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .register-box input {
       width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
-    h2 {
-      margin-top: 40px;
+    .register-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .register-box button:hover {
+      background-color: #155cc0;
+    }
+    .register-box p {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .register-box a {
+      color: #1a73e8;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to PaymentLoo</h1>
-  
-  <h2>Register</h2>
-  <input type="email" id="register-email" placeholder="Email" />
-  <input type="password" id="register-password" placeholder="Password" />
-  <button onclick="register()">Register</button>
-  <p>Already have an account? <a href="index.html">Login</a></p>
-   <a href="dashboard.html"></a>
-  <script>
+
+  <div class="register-box">
+    <h2>Create Account</h2>
+    <input type="email" id="register-email" placeholder="Email" required />
+    <input type="password" id="register-password" placeholder="Password" required />
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="index.html">Login</a></p>
+  </div>
+
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyD4rUpC-Y7m1hGwKydLjTN4hnH4PUejF-0",
-  authDomain: "paymentloo.firebaseapp.com",
-  projectId: "paymentloo",
-  storageBucket: "paymentloo.firebasestorage.app",
-  messagingSenderId: "678382986235",
-  appId: "1:678382986235:web:14d671959c28ec800a215e",
-  measurementId: "G-33XCH79XP2"
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyD4rUpC-Y7m1hGwKydLjTN4hnH4PUejF-0",
+    authDomain: "paymentloo.firebaseapp.com",
+    projectId: "paymentloo",
+    storageBucket: "paymentloo.firebasestorage.app",
+    messagingSenderId: "678382986235",
+    appId: "1:678382986235:web:14d671959c28ec800a215e",
+    measurementId: "G-33XCH79XP2"
+  };
 
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.database();
-
-    function register() {
-      const email = document.getElementById("registerEmail").value;
-      const password = document.getElementById("registerPassword").value;
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(() => alert("Registered Successfully"))
-        .catch(err => alert(err.message));
-    }
-
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
   <script src="frontend/app.js"></script>
 </body>
 </html>
