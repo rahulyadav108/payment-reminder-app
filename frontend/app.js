@@ -1,8 +1,9 @@
-// Firebase v9 Modular SDK
+// Import Firebase (via CDN modules)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyD4rUpC-Y7m1hGwKydLjTN4hnH4PUejF-0",
   authDomain: "paymentloo.firebaseapp.com",
@@ -18,33 +19,64 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth(app);
 
-// Example: Save debtor data (call this when user submits form)
-function saveDebtor(userId, debtorData) {
-  const debtorRef = ref(database, `users/${userId}/debtors`);
-  push(debtorRef, debtorData);
-}
-
-// Example: Register a new user
+// 👉 Register User
 function registerUser(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
       alert("Registered successfully!");
-      // Optionally store additional user data in DB
     })
     .catch((error) => {
       alert(error.message);
     });
 }
 
-// Example: Login user
+// 👉 Login User
 function loginUser(email, password) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
       alert("Logged in!");
     })
     .catch((error) => {
       alert(error.message);
     });
 }
+
+// 👉 Save Debtor
+function saveDebtor(userId, debtorData) {
+  const debtorRef = ref(database, `users/${userId}/debtors`);
+  push(debtorRef, debtorData);
+}
+
+// 🧾 Register Form Handler
+document.getElementById("registerForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const email = document.getElementById("registerEmail").value;
+  const password = document.getElementById("registerPassword").value;
+  registerUser(email, password);
+});
+
+// 🧾 Login Form Handler
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  loginUser(email, password);
+});
+
+// 🧾 Add Debtor Form Handler
+document.getElementById("debtorForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const name = document.getElementById("debtorName").value;
+  const phone = document.getElementById("debtorPhone").value;
+  const amount = parseInt(document.getElementById("debtorAmount").value);
+  const dueDate = document.getElementById("dueDate").value;
+
+  const user = auth.currentUser;
+  if (user) {
+    const debtorData = { name, phone, amount, dueDate };
+    saveDebtor(user.uid, debtorData);
+    alert("Debtor added successfully!");
+  } else {
+    alert("Please log in first.");
+  }
+});
