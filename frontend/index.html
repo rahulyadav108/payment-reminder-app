@@ -1,11 +1,40 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Payment Reminder App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PaymentLoo - Payment Reminder App</title>
 </head>
 <body>
-  <h1>Welcome to Payment Reminder</h1>
-  <p>Please log in or sign up.</p>
+  <h1>💰 PaymentLoo</h1>
+
+  <!-- 🔐 Register Form -->
+  <h2>Register</h2>
+  <form id="registerForm">
+    <input type="email" id="registerEmail" placeholder="Email" required><br>
+    <input type="password" id="registerPassword" placeholder="Password" required><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- 🔓 Login Form -->
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input type="email" id="loginEmail" placeholder="Email" required><br>
+    <input type="password" id="loginPassword" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- 👤 Add Debtor Form -->
+  <h2>Add Debtor</h2>
+  <form id="debtorForm">
+    <input type="text" id="debtorName" placeholder="Debtor Name" required><br>
+    <input type="text" id="debtorPhone" placeholder="Phone Number" required><br>
+    <input type="number" id="debtorAmount" placeholder="Amount (₹)" required><br>
+    <input type="date" id="dueDate" required><br>
+    <button type="submit">Add Debtor</button>
+  </form>
+
+  <!-- 📜 Firebase SDKs -->
+  <script type="module" src="app.js"></script>
 </body>
 </html>
