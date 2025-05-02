@@ -6,61 +6,62 @@
   <title>Register | PaymentLoo</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-    .register-box {
+    .container {
       background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+      width: 320px;
     }
-    .register-box h2 {
+    .container h2 {
       text-align: center;
-      margin-bottom: 20px;
+      color: #d81b60;
+      margin-bottom: 25px;
     }
-    .register-box input {
+    .container input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 8px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
-    .register-box button {
+    .container button {
       width: 100%;
-      padding: 10px;
-      background-color: #1a73e8;
+      padding: 12px;
+      background-color: #d81b60;
       color: white;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
     }
-    .register-box button:hover {
-      background-color: #155cc0;
+    .container button:hover {
+      background-color: #b5124f;
     }
-    .register-box p {
+    .container p {
       text-align: center;
       margin-top: 15px;
     }
-    .register-box a {
-      color: #1a73e8;
+    .container a {
+      color: #d81b60;
       text-decoration: none;
     }
   </style>
 </head>
 <body>
-
-  <div class="register-box">
+  <div class="container">
     <h2>Create Account</h2>
     <input type="email" id="register-email" placeholder="Email" required />
     <input type="password" id="register-password" placeholder="Password" required />
     <button onclick="register()">Register</button>
-    <p>Already have an account? <a href="index.html">Login</a></p>
+    <p>Already registered? <a href="index.html">Login here</a></p>
   </div>
 
   <script type="module">
