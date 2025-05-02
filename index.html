@@ -27,11 +27,6 @@
 <body>
   <h1>Welcome to PaymentLoo</h1>
 
-  <h2>Register</h2>
-  <input type="email" id="registerEmail" placeholder="Email">
-  <input type="password" id="registerPassword" placeholder="Password">
-  <button onclick="register()">Register</button>
-
   <h2>Login</h2>
   <input type="email" id="loginEmail" placeholder="Email">
   <input type="password" id="loginPassword" placeholder="Password">
@@ -59,14 +54,6 @@ const firebaseConfig = {
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.database();
-
-    function register() {
-      const email = document.getElementById("registerEmail").value;
-      const password = document.getElementById("registerPassword").value;
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(() => alert("Registered Successfully"))
-        .catch(err => alert(err.message));
-    }
 
     function login() {
       const email = document.getElementById("loginEmail").value;
