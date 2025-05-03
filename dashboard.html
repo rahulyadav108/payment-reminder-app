@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="frontend/style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard - PaymentLoo</title>
-  <style>
-    body { font-family: Arial; background: #fff3e0; padding: 30px; }
-    .logout-btn { background: #d32f2f; color: white; border: none; padding: 10px 20px; margin-top: 20px; }
-  </style>
+  <title>Dashboard | PaymentLoo</title>
+  <link rel="stylesheet" href="frontend/style.css" />
 </head>
 <body>
-  <h1>Welcome to PaymentLoo Dashboard</h1>
-  <p id="user-email">Loading user info...</p>
-  <button class="logout-btn" onclick="logout()">Logout</button>
+  <div class="dashboard-container">
+    <h2>Welcome to PaymentLoo</h2>
+    <p>You are logged in as: <span id="user-email"></span></p>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
 
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"></script>
   <script src="frontend/app.js"></script>
   <script src="script.js"></script>
 </body>
