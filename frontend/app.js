@@ -1,5 +1,3 @@
-// app.js
-
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyD4rUpC-Y7m1hGwKydLjTN4hnH4PUejF-0",
@@ -12,54 +10,35 @@ const firebaseConfig = {
   measurementId: "G-33XCH79XP2"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Login with email & password
 function login() {
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
 
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      window.location.href = "dashboard.html";
-    })
-    .catch(error => {
-      alert("Login failed: " + error.message);
-    });
+    .then(() => window.location.href = "dashboard.html")
+    .catch(err => alert("Login Failed: " + err.message));
 }
 
-// Register with email & password
 function register() {
   const email = document.getElementById("register-email").value;
   const password = document.getElementById("register-password").value;
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => {
-      window.location.href = "dashboard.html";
-    })
-    .catch(error => {
-      alert("Registration failed: " + error.message);
-    });
+    .then(() => window.location.href = "dashboard.html")
+    .catch(err => alert("Registration Failed: " + err.message));
 }
 
-// Google Sign-In
 function googleLogin() {
   const provider = new firebase.auth.GoogleAuthProvider();
 
   firebase.auth().signInWithPopup(provider)
-    .then(() => {
-      window.location.href = "dashboard.html";
-    })
-    .catch(error => {
-      alert("Google Sign-In failed: " + error.message);
-    });
+    .then(() => window.location.href = "dashboard.html")
+    .catch(err => alert("Google Login Failed: " + err.message));
 }
 
-// Logout
 function logout() {
-  firebase.auth().signOut()
-    .then(() => {
-      window.location.href = "index.html";
-    });
+  firebase.auth().signOut().then(() => window.location.href = "index.html");
 }
+
