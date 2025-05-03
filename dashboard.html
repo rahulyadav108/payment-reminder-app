@@ -1,80 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard | PaymentLoo</title>
+  <link rel="stylesheet" href="frontend/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - PaymentLoo</title>
   <style>
-    body {
-      background: linear-gradient(to right, #43e97b, #38f9d7);
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .dashboard {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
-      width: 350px;
-      text-align: center;
-    }
-    .dashboard h2 {
-      margin-bottom: 20px;
-      color: #00897b;
-    }
-    .dashboard p {
-      font-size: 16px;
-      margin: 10px 0;
-      font-weight: bold;
-    }
-    .dashboard button {
-      padding: 10px 25px;
-      background-color: #00897b;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    .dashboard button:hover {
-      background-color: #00695c;
-    }
+    body { font-family: Arial; background: #fff3e0; padding: 30px; }
+    .logout-btn { background: #d32f2f; color: white; border: none; padding: 10px 20px; margin-top: 20px; }
   </style>
 </head>
 <body>
-  <div class="dashboard">
-    <h2>Welcome to PaymentLoo</h2>
-    <p id="user-email">Verifying...</p>
-    <button onclick="logout()">Logout</button>
-  </div>
+  <h1>Welcome to PaymentLoo Dashboard</h1>
+  <p id="user-email">Loading user info...</p>
+  <button class="logout-btn" onclick="logout()">Logout</button>
 
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD4rUpC-Y7m1hGwKydLjTN4hnH4PUejF-0",
-    authDomain: "paymentloo.firebaseapp.com",
-    projectId: "paymentloo",
-    storageBucket: "paymentloo.firebasestorage.app",
-    messagingSenderId: "678382986235",
-    appId: "1:678382986235:web:14d671959c28ec800a215e",
-    measurementId: "G-33XCH79XP2"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js"></script>
   <script src="frontend/app.js"></script>
-  <script src="frontend/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
