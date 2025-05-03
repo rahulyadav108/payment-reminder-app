@@ -1,3 +1,10 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyD4rUpC-Y7m1hGwKydLjTN4hnH4PUejF-0",
@@ -10,35 +17,7 @@ const firebaseConfig = {
   measurementId: "G-33XCH79XP2"
 };
 
-firebase.initializeApp(firebaseConfig);
-
-function login() {
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
-
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => window.location.href = "dashboard.html")
-    .catch(err => alert("Login Failed: " + err.message));
-}
-
-function register() {
-  const email = document.getElementById("register-email").value;
-  const password = document.getElementById("register-password").value;
-
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => window.location.href = "dashboard.html")
-    .catch(err => alert("Registration Failed: " + err.message));
-}
-
-function googleLogin() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  firebase.auth().signInWithPopup(provider)
-    .then(() => window.location.href = "dashboard.html")
-    .catch(err => alert("Google Login Failed: " + err.message));
-}
-
-function logout() {
-  firebase.auth().signOut().then(() => window.location.href = "index.html");
-}
-
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+window.auth = auth;
